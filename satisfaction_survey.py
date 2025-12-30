@@ -1,15 +1,19 @@
-from nps import Nps
+"""Implementation of the NPS survey"""
 
-nps_survey = Nps()
+from nps import NPS
 
-print("-- Satisfaction Survey --")
+if __name__ == "__main__":
 
-while True:
-    note = input("In a scale from 0 to 10. How much do you recommend our company to a friend?"
-                     '\nType Leave to finish the survey - ')
-    if note.lower() == "leave":
-        break
-    else:
+    nps_survey = NPS()
+
+    print("-- Satisfaction Survey --")
+
+    while True:
+        note = input("On a scale from 0 to 10. How much do you recommend our company to a friend?"
+                        '\nType Leave to finish the survey - ')
+        if note.lower() == "leave":
+            break
+
         nps_survey.add_note(int(note))
 
-nps_survey.avaliate_nps()
+    nps_survey.evaluate_nps()
